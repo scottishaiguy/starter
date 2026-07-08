@@ -4,7 +4,7 @@
   "description": "Interactive Next.js starter generator for the Scottish AI Guy stack.",
   "type": "module",
   "bin": {
-    "create-scottish-ai-guy-app": "./dist/index.js"
+    "create-scottish-ai-guy-app": "dist/index.js"
   },
   "files": [
     "dist",
