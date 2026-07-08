@@ -1,7 +1,7 @@
 {
   "name": "create-scottish-ai-guy-app",
-  "version": "0.1.0",
-  "description": "Interactive starter generator for the Scottish AI Guy stack.",
+  "version": "1.0.0",
+  "description": "Interactive Next.js starter generator for the Scottish AI Guy stack.",
   "type": "module",
   "bin": {
     "create-scottish-ai-guy-app": "./dist/index.js"
@@ -9,7 +9,9 @@
   "files": [
     "dist",
     "templates",
-    "README.md"
+    "README.md",
+    "CHANGELOG.md",
+    "LICENSE"
   ],
   "scripts": {
     "dev": "tsx src/index.ts",
@@ -18,8 +20,13 @@
     "typecheck": "tsc -p tsconfig.json --noEmit"
   },
   "keywords": [
+    "create",
     "nextjs",
+    "react",
+    "typescript",
+    "tailwindcss",
     "starter",
+    "generator",
     "cli",
     "scottish-ai-guy",
     "convex",
@@ -27,8 +34,16 @@
     "stripe",
     "mdx"
   ],
-  "author": "",
+  "author": "Scottish AI Guy",
   "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/scottishaiguy/starter.git"
+  },
+  "homepage": "https://github.com/scottishaiguy/starter#readme",
+  "bugs": {
+    "url": "https://github.com/scottishaiguy/starter/issues"
+  },
   "packageManager": "pnpm@11.7.0",
   "dependencies": {
     "@inquirer/prompts": "^7.6.0",

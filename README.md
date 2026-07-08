@@ -2,54 +2,92 @@
 
 Interactive starter generator for the Scottish AI Guy stack.
 
+It creates a practical Next.js starter with TypeScript, Tailwind CSS, App Router folders, Scottish AI Guy standards, and optional overlays for Convex, Clerk, Stripe, MDX, a deterministic assistant, and blog/insights content.
+
+## Quick Start
+
+Create a new app with `npx`:
+
 ```bash
 npx create-scottish-ai-guy-app my-newsletter
 ```
 
-The CLI creates a practical Next.js starter with TypeScript, Tailwind CSS, App Router folders, Scottish AI Guy standards, and optional Convex, Clerk, Stripe, MDX, deterministic assistant, and blog/insights overlays.
-
-## Local Development
-
-Install dependencies:
+Then follow the prompts, move into the project, and start development:
 
 ```bash
+cd my-newsletter
 pnpm install
+pnpm dev
 ```
 
-Run the CLI locally:
+You can also run it without an initial project name:
 
 ```bash
-pnpm dev my-project
+npx create-scottish-ai-guy-app
 ```
 
-Build the CLI:
+## Interactive Flow
 
-```bash
-pnpm build
-```
+The CLI asks for:
 
-Run checks:
+- Project name
+- Project type
+- Whether to use Convex
+- Whether to use Clerk
+- Whether to use Stripe
+- Whether to use MDX
+- Whether to include the deterministic assistant
+- Whether to include blog/insights pages
+- Whether to initialise Git
+- Whether to install dependencies
 
-```bash
-pnpm lint
-pnpm typecheck
-```
+If the target folder already exists and is not empty, the CLI asks before overwriting it.
 
-Test the built binary locally:
+## Project Types
 
-```bash
-pnpm build
-node dist/index.js my-project
-```
+Available project types:
 
-You can also link it:
+- Business Website
+- SaaS
+- Newsletter SaaS
+- Course Platform
+- AI Assistant App
 
-```bash
-pnpm link --global
-create-scottish-ai-guy-app my-project
-```
+The selected type is copied over the base template, so each type can add or replace files without changing the core generator.
 
-## Templates
+## Optional Features
+
+Feature overlays are copied after the base and project-type templates.
+
+- Convex: schema, users table helpers, example query, example mutation, dependency, and env variables
+- Clerk: middleware, provider wrapper, sign-in/sign-up routes, protected dashboard example, dependency, and env variables
+- Stripe: Stripe client, webhook route placeholder, pricing page, dependency, and env variables
+- MDX: MDX config, content examples, components file, and example renderer
+- Deterministic assistant: bottom-right launcher, mobile-friendly drawer, knowledge file, and rules file
+- Blog/insights: `/insights`, `/insights/[slug]`, example article data, example MDX article, and metadata
+
+## Generated App
+
+Each generated app includes:
+
+- Next.js 16+
+- TypeScript
+- Tailwind CSS
+- shadcn/ui-ready structure
+- App Router under `src/app`
+- `src/components`
+- `src/lib`
+- `src/data`
+- `src/content`
+- `convex`
+- `AGENTS.md`
+- `.scottish-ai-guy/` standards
+- `.env.example`
+- `README.md`
+
+The generated `.env.example` only includes variables required by the selected features.
+
+## Template Architecture
 
 Templates live in `templates/`.
 
@@ -82,7 +120,48 @@ Supported placeholders:
 - `{{PROJECT_TYPE}}`
 - `{{YEAR}}`
 
-To add a new template, create a new folder under `templates/`, add it to `src/project-types.ts`, and keep feature-specific files in `templates/features/` where possible.
+To add a new project type, create a new folder under `templates/`, add it to `src/project-types.ts`, and keep feature-specific files in `templates/features/` where possible.
+
+## Local Development
+
+Install dependencies:
+
+```bash
+pnpm install
+```
+
+Run the CLI locally:
+
+```bash
+pnpm dev my-project
+```
+
+Build the CLI:
+
+```bash
+pnpm build
+```
+
+Run checks:
+
+```bash
+pnpm typecheck
+pnpm lint
+```
+
+Test the built binary locally:
+
+```bash
+pnpm build
+node dist/index.js my-project
+```
+
+You can also link it globally for local testing:
+
+```bash
+pnpm link --global
+create-scottish-ai-guy-app my-project
+```
 
 ## Publishing
 
@@ -90,31 +169,16 @@ Before publishing:
 
 ```bash
 pnpm install
-pnpm lint
 pnpm typecheck
+pnpm lint
 pnpm build
 npm pack --dry-run
 ```
 
-Then publish:
+Publish to npm:
 
 ```bash
 npm publish --access public
 ```
 
-## Generated App
-
-Each generated app includes:
-
-- Next.js 16+
-- TypeScript
-- Tailwind CSS
-- shadcn/ui-ready structure
-- `src/app`, `src/components`, `src/lib`, `src/data`, `src/content`
-- `convex`
-- `AGENTS.md`
-- `.scottish-ai-guy/` standards
-- `.env.example`
-- `README.md`
-
-The CLI can initialise Git and run `pnpm install` for the generated project.
+The package publishes only the built CLI, templates, README, changelog, and license.
